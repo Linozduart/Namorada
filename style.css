@@ -1,22 +1,24 @@
-/* CSS ATUALIZADO - TAMANHOS IGUAIS */
+/* CSS REVISADO - GALERIA RESPONSIVA */
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   width: 100%;
-  margin: 30px 0;
+  max-width: 1200px; /* Limita a largura máxima */
+  margin: 30px auto; /* Centraliza a galeria */
+  padding: 0 20px;
 }
 
 .foto-com-legenda {
+  width: 100%; /* Ocupa toda a célula do grid */
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ocupa toda a altura do grid */
 }
 
 .foto-container {
   position: relative;
   width: 100%;
-  padding-top: 100%; /* Proporção 1:1 (quadrado) */
+  padding-top: 100%; /* Proporção quadrada (altere se precisar) */
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -28,18 +30,35 @@
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Preenche mantendo proporção */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.foto:hover {
+  transform: scale(1.05);
 }
 
 .legenda {
-  margin-top: 10px;
-  padding: 0 5px;
+  margin-top: 12px;
   text-align: center;
   font-style: italic;
   color: #d63384;
-  height: 40px; /* Altura fixa para legendas */
+  font-size: 14px;
+  min-height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+  }
 }
