@@ -2,7 +2,7 @@ function verificarCodigo() {
   const codigo = document.getElementById("codigo").value.trim().toUpperCase();
   const conteudo = document.getElementById("conteudo");
 
-  if (codigo === "a") {
+  if (codigo === "A") {
     conteudo.classList.remove("escondido");
   } else {
     alert("Código incorreto! Tente novamente ❤️");
